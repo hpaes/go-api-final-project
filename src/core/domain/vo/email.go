@@ -31,19 +31,6 @@ func (e Email) MarshalJSON() ([]byte, error) {
 	return json.Marshal(e.value)
 }
 
-// UnmarshalJSON unmarshals a JSON string to an Email instance.
-func (e *Email) UnmarshalJSON(data []byte) error {
-	var value string
-	if err := json.Unmarshal(data, &value); err != nil {
-		return err
-	}
-	if !isValidEmail(value) {
-		return custom_errors.NewInvalidParameterError("Email", "Invalid email format")
-	}
-	e.value = value
-	return nil
-}
-
 func isValidEmail(value string) bool {
 	regex, err := regexp.Compile(emailRegexPattern)
 	if err != nil {

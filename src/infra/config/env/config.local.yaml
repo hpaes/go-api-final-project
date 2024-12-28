@@ -1,0 +1,8 @@
+application:
+  name: user
+  server:
+    port: 8080
+    timeout: 100
+
+mysql:
+  host: "root:root@tcp(127.0.0.1:3306)/brq_golang?charset=utf8mb4&parseTime=True&loc=Local"
